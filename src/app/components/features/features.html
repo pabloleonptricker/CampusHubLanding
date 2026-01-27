@@ -1,0 +1,16 @@
+<section id="saber-mas" class="features-section">
+    <div class="section-header">
+        <h2>¿Qué vas a encontrar en la App?</h2>
+        <p>Tres pilares que definen nuestro desarrollo principal.</p>
+    </div>
+
+    <div class="features-grid">
+        @for (feature of listaFeatures(); track feature.titulo) {
+        <div class="feature-card">
+            <div class="icon">✨</div>
+            <h3>{{ feature.titulo }}</h3>
+            <p>{{ feature.desc }}</p>
+        </div>
+        }
+    </div>
+</section>
