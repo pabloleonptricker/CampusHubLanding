@@ -1,0 +1,98 @@
+@use "../base/variables" as *;
+@use "../base/utilities" as *;
+
+// Página de Registro: Espacio de creación de perfiles
+// Contenedor principal que equilibra el formulario extenso dentro del visor.
+.pagina-registro {
+  @include margenes-laterales;
+  display: flex; 
+  justify-content: center; 
+  padding-top: 2rem; 
+  padding-bottom: 2rem; 
+
+  // Contenedor del Formulario: Tarjeta de admisión expandida
+  // Diseño más ancho que el login para acomodar filas de múltiples campos.
+  .contenedor-formulario {
+    width: 100%; 
+    max-width: 600px; 
+    padding: 2rem; 
+    background-color: $color-fondo-puro; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+
+    // Cabecera del Formulario: Identidad corporativa
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      h1 {
+        margin-bottom: 0.5rem;
+        color: $color-texto-titulo-h1;
+      }
+
+      // Estilizado diferenciado para el nombre de la marca
+      h2 { 
+        font-size: 1.5rem;
+        color: $color-texto-secundario;
+        margin: 0;
+        
+        &:last-child { 
+          font-size: 1.8rem;
+          color: $color-interactivo-principal;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+
+    form {
+      .grupo-input {
+        margin-bottom: 1rem;
+        
+        // Espaciado extra para "Repetir contraseña" o grupos finales
+        &:last-of-type {
+            margin-bottom: 1.5rem;
+        }
+      }
+
+      .enlace-login-container {
+        text-align: right;
+        margin-bottom: 1.5rem;
+
+        a {
+           color: $color-interactivo-principal;
+           text-decoration: none;
+           font-weight: $peso-negrita;
+           
+           &:hover {
+             text-decoration: underline;
+           }
+        }
+      }
+    }
+  }
+
+  // Datos Personales: Organización en columnas
+  // Divide el nombre y apellidos en una sola fila para compactar el formulario.
+  .fila-nombres {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; // Diseño bipartito
+    gap: 1rem; 
+    margin-bottom: 1rem; 
+
+    // Adaptabilidad: Colapso a una columna en dispositivos móviles
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; 
+    }
+  }
+
+  // Sección de términos y condiciones
+  // Contenedor para el checkbox de aceptación de términos
+  .terminos {
+    margin-top: 1rem; // Espacio superior
+    font-size: 0.9rem; // Tamaño de fuente ligeramente más pequeño
+    color: $color-texto-secundario; // Color gris oscuro
+    display: flex; // Usa flexbox para organizar checkbox y label
+    align-items: center; // Centra verticalmente
+    gap: 0.5rem; // Espacio entre checkbox y label
+  }
+}

@@ -1,0 +1,54 @@
+// Archivo de mixins reutilizables
+// Los mixins son bloques de código reutilizables que se pueden incluir en otros selectores
+@use "variables" as *;
+
+// Mixin para media queries responsivas
+// Este mixin centraliza la gestión de los 'breakpoints' del sitio, permitiendo escribir
+// estilos específicos para cada dispositivo de forma limpia y organizada.
+// Uso: @include responsive(movil) { ... estilos ... }
+@mixin responsive($breakpoint) {
+  // Dispositivos móviles (Smartphones)
+  // Se aplica cuando el ancho de pantalla es menor o igual a 768px
+  @if $breakpoint == movil {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  // Tablets y dispositivos medianos
+  // Se aplica cuando el ancho de pantalla es menor o igual a 992px
+  @else if $breakpoint == tablet {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+
+  // Pantallas de escritorio
+  // Se aplica cuando el ancho de pantalla es mayor a 992px
+  @else if $breakpoint == escritorio {
+    @media (min-width: 993px) {
+      @content;
+    }
+  }
+}
+
+// Mixin para centrar elementos con flexbox
+// Una solución rápida para centrar el contenido tanto horizontal como verticalmente
+// dentro de un contenedor padre.
+// Uso: @include flex-center;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin para crear grids automáticos y responsivos
+// Facilita la creación de cuadrículas que se ajustan solas según el espacio disponible,
+// sin necesidad de escribir múltiples media queries manuales.
+// Parámetros: $min-width (ancho mínimo que tendrá cada columna), $gap (espacio entre ellas)
+// Uso: @include grid-auto(250px, 1.5rem);
+@mixin grid-auto($min-width: 250px, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}

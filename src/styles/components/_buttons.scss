@@ -1,0 +1,82 @@
+// Estilos para componentes de botones
+// Este archivo define los estilos de los diferentes tipos de botones usados en la aplicación
+@use "../base/variables" as *;
+
+// Botón Primario: Llamada a la acción principal
+// Se utiliza para los eventos más importantes del flujo de usuario (ej. Iniciar Sesión, Buscar).
+// Garantiza la legibilidad mediante un fuerte contraste y un peso tipográfico semi-bold.
+.boton-primario {
+  display: inline-block; 
+  padding: $espaciado-s $espaciado-l; 
+  background-color: $color-interactivo-principal; 
+  color: $color-fondo-puro; 
+  border: none; 
+  border-radius: 4px; 
+  font-size: 1rem; 
+  font-weight: $peso-semi-negrita; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+
+  // Estados de Interacción: Retroalimentación inmediata al usuario
+  &:hover {
+    background-color: $color-hover-interactivo; 
+  }
+
+  &:active {
+    background-color: $color-activo-interactivo; 
+    color: $color-fondo-puro !important; 
+  }
+
+  // Estado Deshabilitado: Previene acciones cuando los requisitos no se cumplen
+  &:disabled {
+    background-color: $color-deshabilitado-interactivo; 
+    cursor: not-allowed; 
+  }
+
+  // Accesibilidad: Resaltado visual para navegación mediante teclado
+  &:focus {
+    outline: 3px solid $sombra-foco-accesibilidad; 
+    outline-offset: 2px; 
+  }
+}
+
+// Botón Delineado: Acción secundaria o de bajo impacto
+// Ideal para filtros, cancelaciones o acciones opcionales.
+// Utiliza transparencia y bordes definidos para no competir visualmente con el botón primario.
+.boton-delineado {
+  display: inline-block; 
+  padding: $espaciado-s $espaciado-l; 
+  background-color: transparent; 
+  color: $color-interactivo-principal; 
+  border: 2px solid $color-interactivo-principal; 
+  border-radius: 4px; 
+  font-size: 1rem; 
+  font-weight: $peso-semi-negrita; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+
+  // Estado hover cuando el usuario pasa el cursor sobre el botón
+  &:hover {
+    background-color: rgba($color-interactivo-principal,
+        0.1); // Fondo azul muy claro (10% opacidad)
+  }
+
+  // Estado activo cuando el usuario hace clic en el botón
+  &:active {
+    background-color: rgba($color-interactivo-principal,
+        0.2); // Fondo azul claro (20% opacidad)
+  }
+
+  // Estado deshabilitado cuando el botón no está disponible
+  &:disabled {
+    border-color: $color-deshabilitado-interactivo; // Borde azul desaturado
+    color: $color-deshabilitado-interactivo; // Texto azul desaturado
+    cursor: not-allowed; // Cursor de prohibido
+  }
+
+  // Estado de foco para accesibilidad con teclado
+  &:focus {
+    outline: 3px solid $sombra-foco-accesibilidad; // Borde azul visible
+    outline-offset: 2px; // Separación del borde del botón
+  }
+}

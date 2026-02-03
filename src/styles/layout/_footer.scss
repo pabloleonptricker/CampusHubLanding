@@ -1,0 +1,74 @@
+// Estilos para el pie de página
+@use "../base/variables" as *;
+
+// Pie de página principal: Base estructural oscura
+// Define el área de cierre de la página con un fuerte contraste (azul marino)
+// para dar peso visual y profesionalismo al final del scroll.
+.pie-pagina-principal {
+  background-color: $color-fondo-pie-pagina; 
+  color: $color-fondo-puro; 
+  padding: 3rem 0; 
+  margin-top: 4rem; // Separación generosa del contenido principal
+  font-size: 0.9rem; 
+
+  // Contenedor de columnas: Diseño de cuadrícula autoadaptable
+  // Organiza el contenido en bloques que se ajustan según la disponibilidad de ancho.
+  .contenedor-footer {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 2rem; 
+
+    // Alineación central en móviles para una mejor jerarquía visual
+    @media (max-width: 768px) {
+      text-align: center; 
+    }
+  }
+  // Títulos de sección: Resaltado de color acento
+  // Usa el tono amarillo corporativo para jerarquizar los bloques de información.
+  h4 {
+    color: $color-acento-resaltado; 
+    margin-top: 0; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); // Línea decorativa sutil
+    padding-bottom: 0.5rem; 
+    margin-bottom: 1rem; 
+  }
+
+  // Párrafos y elementos de lista
+  // Texto del contenido del footer
+  p,
+  li {
+    color: rgba(255, 255, 255, 0.8); // Blanco semi-transparente
+    line-height: 1.8; // Altura de línea para mejor legibilidad
+  }
+
+  // Listas dentro del footer
+  ul {
+    list-style: none; // Sin viñetas
+    padding: 0; // Sin padding
+    margin: 0; // Sin márgenes
+  }
+
+  // Enlaces del pie de página: Interactividad clara
+  // Mantiene el blanco por legibilidad y cambia al acento amarillo en hover.
+  a {
+    color: $color-fondo-puro; 
+    text-decoration: none; 
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: $color-acento-resaltado; 
+      text-decoration: underline; 
+    }
+  }
+
+  // Copyright: Pie de cierre absoluto
+  // Información legal y de derechos con bajo contraste para no distraer.
+  .copyright {
+    text-align: center; 
+    margin-top: 3rem; 
+    padding-top: 1rem; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); // Separador final sutil
+    font-size: 0.8rem; 
+    color: rgba(255, 255, 255, 0.5); 
+  }
+}

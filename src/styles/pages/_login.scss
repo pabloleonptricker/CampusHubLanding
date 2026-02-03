@@ -1,0 +1,52 @@
+@use "../base/variables" as *;
+@use "../base/utilities" as *;
+
+// Página de Login: Área de acceso seguro
+// Diseñada para centrar visualmente el formulario en el viewport, eliminando distracciones.
+.pagina-login {
+  @include margenes-laterales;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-height: 80vh; // Asegura que el formulario esté verticalmente equilibrado
+
+  // Contenedor del Formulario: Tarjeta de autenticación
+  // Enmarca los campos de entrada en una caja con elevación sutil.
+  .contenedor-formulario {
+    width: 100%; 
+    max-width: 400px; // Tamaño optimizado para legibilidad en un solo golpe de vista
+    padding: 2rem; 
+    background-color: $color-fondo-puro; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+
+    h1 {
+      text-align: center;
+      color: $color-texto-titulo-h1;
+      margin-bottom: 2rem;
+    }
+
+    // Enlace de Conversión: Redirección al registro
+    form {
+      .grupo-input {
+        margin-bottom: 1.5rem;
+      }
+      
+      .enlace-registro-container {
+        text-align: right; // Alineado a la derecha para separar visualmente del botón
+        margin-top: 0.5rem;
+
+        a {
+           color: $color-interactivo-principal;
+           text-decoration: none;
+           font-weight: $peso-negrita;
+           font-size: 0.9rem;
+
+           &:hover {
+             text-decoration: underline;
+           }
+        }
+      }
+    }
+  }
+}

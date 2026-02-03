@@ -1,0 +1,84 @@
+@use "../base/variables" as *;
+@use "../base/utilities" as *;
+
+// Página de Subida de Proyectos: Interfaz de contribución
+// Contenedor principal para la carga de nuevos trabajos y experimentos de código.
+.pagina-upload {
+  padding-top: 2rem; 
+  padding-bottom: 2rem; 
+  
+  // Contenedor Centrado: Enmarcado del contenido para lectura cómoda
+  .contenedor-centrado {
+     max-width: 800px;
+     margin: 0 auto;
+     
+     h1 {
+       text-align: center;
+       color: $color-texto-titulo-h1;
+       margin-bottom: 0.5rem;
+     }
+     
+     h2 {
+       text-align: center;
+       color: $color-texto-titulo-h1;
+       margin-bottom: 3rem;
+     }
+
+     form {
+       .grupo-input {
+         margin-bottom: 1.5rem;
+         
+         // Más espacio para nombre del centro (último input antes del botón)
+         &:last-of-type {
+           margin-bottom: 2rem;
+         }
+       }
+       
+       .contenedor-boton {
+         text-align: center;
+         
+         .boton-primario {
+           // Podemos sobrescribir propiedades específicas si es necesario
+           padding: 1rem 3rem; 
+         }
+       }
+     }
+  }
+}
+
+// Zona de Arrastre (Drag & Drop): Selector de archivos interactivo
+// Proporciona una respuesta visual clara mediante bordes discontinuos y cambios de fondo.
+.zona-arrastre {
+  border: 2px dashed $color-interactivo-principal; // Indicador de área droppable
+  border-radius: 8px; 
+  padding: 3rem; 
+  text-align: center; 
+  background-color: rgba($color-interactivo-principal, 0.05); 
+  transition: all 0.3s ease; 
+  cursor: pointer; 
+  margin-bottom: 1.5rem; 
+
+  // Estados hover y arrastrando
+  // Cambia la apariencia cuando el usuario pasa el cursor o arrastra archivos
+  &:hover,
+  &.arrastrando {
+    background-color: rgba($color-interactivo-principal,
+        0.1); // Fondo azul claro (10% opacidad)
+    border-color: $color-hover-interactivo; // Borde azul más oscuro
+  }
+
+  // Párrafos dentro de la zona de arrastre
+  p {
+    color: $color-texto-subtitulo; // Color azul intermedio
+    font-weight: $peso-semi-negrita; // Peso semi-negrita
+    margin-bottom: 1rem; // Espacio inferior
+  }
+
+  // Icono de subida
+  // Emoji o icono grande que representa la acción de subir archivos
+  .icono-upload {
+    font-size: 3rem; // Tamaño grande
+    color: $color-interactivo-principal; // Color azul principal
+    margin-bottom: 1rem; // Espacio inferior
+  }
+}

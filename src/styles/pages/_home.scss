@@ -1,0 +1,105 @@
+// Así es como le doy vida a mi página de inicio.
+// Aquí controlo desde el Hero hasta cómo se comportan mis cuadrículas de proyectos.
+@use "../base/variables" as *;
+
+// Diseño de cuadrícula de dos columnas pro-activo
+// Utilizado para equilibrar visualmente el texto y las imágenes en pantallas anchas.
+.grid-dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr; // División equitativa del espacio
+  gap: $gap-grid;
+
+  // En pantallas de móviles, las columnas se apilan verticalmente para mejor lectura.
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Filtros por categoría
+// Contenedor para botones de filtro que permiten navegar por categorías
+.filtros-categoria {
+  display: flex; // Usa flexbox para organizar los botones
+  align-items: center; // Alinea verticalmente el texto y los botones
+  gap: $espaciado-m; // Espacio estándar entre botones
+  margin-top: $espaciado-l; // Espacio superior para separar del buscador
+  margin-bottom: $espaciado-xl; // Espacio inferior estándar
+  flex-wrap: wrap; // Permite que los botones se envuelvan en múltiples líneas si es necesario
+}
+
+// Grid de Proyectos
+// Sistema dinámico que ajusta automáticamente el número de columnas (mínimo 300px)
+// según el ancho de la resolución del usuario.
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $gap-grid;
+  margin-top: $espaciado-xl;
+  margin-bottom: $espaciado-xxl;
+}
+
+// Mi sección HERO: el primer flechazo para el usuario.
+// Le doy un aire moderno con un buscador estilo 'pill' muy cómodo.
+#hero {
+  padding: $espaciado-xxl 0;
+  background-color: rgba(
+    $color-interactivo-principal,
+    0.05
+  ); // Sutil tinte azul
+  border-bottom: 1px solid rgba($color-interactivo-principal, 0.1);
+
+  .hero-content {
+    h1 {
+      margin-top: 0;
+      max-width: 800px;
+    }
+
+    // Contenedor del buscador: Alinea el input y el botón en estilo 'pill'
+    .search-container {
+      display: flex;
+      max-width: 800px;
+      margin-top: $espaciado-xl;
+
+      .barra-busqueda {
+        flex: 1;
+        border-top-right-radius: 0; // Se une visualmente al botón
+        border-bottom-right-radius: 0;
+        border-right: none;
+      }
+
+      .boton-primario {
+        border-top-left-radius: 0; // Se une visualmente al input
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 50px; // Redondeado final derecho
+        border-bottom-right-radius: 50px;
+        padding-left: $espaciado-xl;
+        padding-right: $espaciado-xl;
+      }
+    }
+  }
+}
+
+// Sección de información
+#info-section {
+  padding: $espaciado-xxl 0;
+
+  .contenedor-pagina {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $espaciado-xxl;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .info-image {
+    background-color: #ddd;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+}
